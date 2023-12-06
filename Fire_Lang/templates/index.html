@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trichy</title>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 20px;
+        }
+
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Trichy</h1>
+        <form method="post">
+            <textarea name="user_query" rows="4" placeholder="Enter your query..." required></textarea>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if user_query %}
+        <div id="result">
+            <h2>User Query:</h2>
+            <p>{{ user_query }}</p>
+            <h2>Response Result:</h2>
+            <p>{{ response_result }}</p>
+            <h2>Locations List:</h2>
+            <ul>
+                {% for location in locations_list %}
+                <li>{{ location }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

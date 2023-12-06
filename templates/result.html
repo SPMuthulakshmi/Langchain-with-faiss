@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trichy Explorer</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 20px;
+            text-align: center;
+        }
+
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Trichy Explorer</h1>
+        <form method="post">
+            <textarea name="user_query" rows="4" placeholder="Enter your query..." required>{{ user_query }}</textarea>
+            <br>
+            <button type="submit">Explore Trichy</button>
+        </form>
+        {% if user_query %}
+        <div id="result">
+            <h2>User Query:</h2>
+            <p>{{ user_query }}</p>
+            
+            <h2>Response Result:</h2>
+            <p>{{ response_result }}</p>
+            
+            <h2>Locations List:</h2>
+            <p>{{ location_result }}</p>
+            
+            <h2>Near to Explore:</h2>
+            <p>{{ near_place_result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
